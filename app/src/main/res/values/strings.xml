@@ -4,4 +4,12 @@
     <string name="text_po_kliknuti">Dnes bylo 21 °C a jasno.</string>
     <string name="akce_zmen_text">Zapsat dnešní počasí</string>
 
+    <string name="bmi_hmotnost">Hmotnost (kg)</string>
+    <string name="bmi_vyska">Výška (cm)</string>
+    <string name="bmi_vysledek">BMI: %.1f</string>
+    <string name="bmi_zadejte">Zadejte hmotnost a výšku</string>
+
+
+
+
 </resources>
