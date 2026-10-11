@@ -8,6 +8,7 @@
     <string name="bmi_vyska">Výška (cm)</string>
     <string name="bmi_vysledek">BMI: %.1f</string>
     <string name="bmi_zadejte">Zadejte hmotnost a výšku</string>
+    <string name="akce_bmi">Kalkulačka BMI</string>
 
 
 

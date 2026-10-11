@@ -2,6 +2,7 @@ package cz.utb.meteodenik
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
@@ -17,10 +18,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cz.utb.meteodenik.ui.theme.MeteoDenikTheme
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,8 +32,18 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MeteoDenikTheme {
+                var zobrazitBmi by remember { mutableStateOf(false) }
+
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    MeteoObrazovka(modifier = Modifier.padding(innerPadding))
+                    if(zobrazitBmi){
+                        BackHandler {zobrazitBmi  = false }
+                        BmiObrazovka(modifier = Modifier.padding(innerPadding))
+                    }else {
+                        MeteoObrazovka(
+                            onOtevritBmi = { zobrazitBmi = true },
+                            modifier = Modifier.padding(innerPadding)
+                        )
+                    }
                 }
             }
         }
@@ -37,7 +51,9 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MeteoObrazovka(modifier: Modifier = Modifier) {
+fun MeteoObrazovka(
+    onOtevritBmi: () -> Unit,
+    modifier: Modifier = Modifier) {
     var zapsano by remember { mutableStateOf(false) }
 
     Column(modifier = modifier.padding(16.dp)) {
@@ -49,6 +65,10 @@ fun MeteoObrazovka(modifier: Modifier = Modifier) {
         Button(onClick = { zapsano = true }) {
             Text(text = stringResource(R.string.akce_zmen_text))
         }
+        Button(onClick = onOtevritBmi ) {
+            Text(text = stringResource(R.string.akce_bmi))
+        }
+
     }
 }
 
