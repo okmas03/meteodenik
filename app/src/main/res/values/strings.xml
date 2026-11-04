@@ -10,6 +10,9 @@
     <string name="bmi_zadejte">Zadejte hmotnost a výšku</string>
     <string name="akce_bmi">Kalkulačka BMI</string>
 
+    <string name="teplota_format">%1$.1f °C</string>
+    <string name="mesto_nezname">Neznámé město</string>
+
 
 
 

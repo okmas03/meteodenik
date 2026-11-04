@@ -1,13 +1,16 @@
 package cz.utb.meteodenik
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
@@ -19,9 +22,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import cz.utb.meteodenik.model.UKAZKOVA_MESTA
 import cz.utb.meteodenik.ui.theme.MeteoDenikTheme
 
 private const val TAG = "Cyklus"
@@ -88,8 +93,26 @@ fun MeteoObrazovka(
     modifier: Modifier = Modifier
 ) {
     var zapsano by remember { mutableStateOf(false) }
+    val context = LocalContext.current
 
     Column(modifier = modifier.padding(16.dp)) {
+        UKAZKOVA_MESTA.forEach { mesto ->
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable {
+                        val intent = Intent(context, DetailMestaActivity::class.java)
+                            .putExtra(DetailMestaActivity.EXTRA_MESTO, mesto.nazev)
+                            .putExtra(DetailMestaActivity.EXTRA_TEPLOTA, mesto.teplota)
+                        context.startActivity(intent)
+                    }
+                    .padding(16.dp)
+            ) {
+                Text(mesto.nazev)
+                Text(stringResource(R.string.teplota_format, mesto.teplota))
+            }
+        }
+
         Text(
             text = if (zapsano) stringResource(R.string.text_po_kliknuti)
             else stringResource(R.string.uvodni_text),
