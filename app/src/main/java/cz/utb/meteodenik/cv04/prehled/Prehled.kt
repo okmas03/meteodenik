@@ -1,4 +1,7 @@
+
 package cz.utb.meteodenik.cv04.prehled
+
+
 
 fun Double.jakoCelsia(): String = "$this C"
 
@@ -42,3 +45,4 @@ fun main() {
         )
     ).vypis()
 }
+

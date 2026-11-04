@@ -1,0 +1,10 @@
+# Lekce 05 – tabulka životního cyklu
+
+| Scénář | Můj předpoklad | Skutečnost z Logcatu | Proč se to liší |
+|---|---|---|---|
+| 1. Start aplikace z ikony | onCreate (savedInstanceState = null) -> onStart -> onResume | onCreate (savedInstanceState = null) -> onStart -> onResume | shoda |
+| 2. Rotace displeje | onPause -> onStop -> onDestroy (isFinishing = true) -> onCreate (savedInstanceState = null) -> onStart -> onResume | onPause -> onStop -> onDestroy (isFinishing = false) -> onCreate (savedInstanceState ≠ null, Bundle) -> onStart -> onResume | Instanci neukončil uživatel, ale systém kvůli změně konfigurace (nová orientace potřebuje nové rozvržení), proto isFinishing = false. Před zničením systém uložil stav (onSaveInstanceState) a předal ho nové instanci jako Bundle, proto savedInstanceState není null. |
+| 3. Stisk Home | onPause -> onStop -> onDestroy | onPause -> onStop | Aktivita jen přestala být viditelná. Instance zůstává v paměti ve stavu stopped; systém ji zničí až při ukončení, změně konfigurace nebo zabití procesu. |
+| 4. Návrat do aplikace | onCreate -> onStart -> onResume | onRestart -> onStart -> onResume | Instance po Home nezanikla, takže se nevytváří nová (žádné onCreate). Systém existující instanci jen přivede ze stavu stopped zpět do popředí; onRestart značí návrat ze stopped. |
+| 5. Stisk Zpět na MainActivity | onPause -> onStop -> onDestroy (isFinishing = true) | onPause -> onStop (onDestroy nepřišel) | Od Androidu 12 systém Zpět na kořenové (LAUNCHER) aktivitě neukončí, ale přesune celý task na pozadí jako Home. Instance zůstává v paměti ve stavu stopped, proto žádné onDestroy a při návratu onRestart. |
+| 6. adb shell am kill na pozadí + návrat | onPause -> onStop, onDestroy nepřišel; návrat: onCreate (savedInstanceState = null) -> onStart -> onResume | Home: onPause -> onStop; am kill: PROCESS ENDED, onDestroy nepřišel; návrat: DOPLNIT |  |
