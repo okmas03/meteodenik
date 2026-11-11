@@ -30,4 +30,6 @@
             android:exported="false" />
     </application>
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
 </manifest>

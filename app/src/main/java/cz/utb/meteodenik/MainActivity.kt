@@ -108,9 +108,7 @@ fun MeteoObrazovka(
         )
 
         // ② tlačítko polohy
-        Button(onClick = { /* poloha přijde v další lekci */ }) {
-            Text(stringResource(R.string.seznam_tlacitko_poloha))
-        }
+        PolohaKarta(modifier = Modifier.padding(bottom = 8.dp))
 
         // ③ seznam měst
         UKAZKOVA_MESTA.forEach { mesto ->

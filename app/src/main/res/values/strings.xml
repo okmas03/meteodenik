@@ -24,6 +24,17 @@
 
     <string name="detail_souhrn">%1$s má právě %2$.1f °C</string>
 
+    <string name="poloha_titulek">Moje poloha</string>
+    <string name="poloha_vysvetleni">MeteoDeník podle přibližné polohy zjistí, ve kterém městě jste, a ukáže vám počasí právě pro vaše místo, takže ho nemusíte hledat v seznamu. Stačí nám přibližná poloha na úrovni města, přesnou adresu nezjišťujeme a nikam ji neodesíláme.</string>
+    <string name="poloha_pokracovat">Pokračovat</string>
+    <string name="poloha_ted_ne">Teď ne</string>
+    <string name="poloha_zamitnuto">Bez polohy vám počasí pro vaše místo neukážeme. Můžete to zkusit znovu.</string>
+    <string name="poloha_trvale_zamitnuto">Přístup k poloze je vypnutý. Vše ostatní v aplikaci funguje dál. Pokud chcete počasí pro své místo, povolte polohu v Nastavení.</string>
+    <string name="poloha_otevrit_nastaveni">Otevřít Nastavení</string>
+    <string name="poloha_souradnice">Šířka: %1$.4f, délka: %2$.4f</string>
+    <string name="poloha_neznama">Poloha je povolena, ale zatím není k dispozici. Zkuste to za chvíli znovu.</string>
+    <string name="poloha_obnovit">Obnovit polohu</string>
+
 
 
 

@@ -21,4 +21,15 @@
     </plurals>
 
     <string name="detail_souhrn">%1$s currently has %2$.1f °C</string>
+
+    <string name="poloha_titulek">My location</string>
+    <string name="poloha_vysvetleni">Weather Diary uses your approximate location to find out which city you are in and show the weather for your place, so you don\'t have to look it up in the list. City-level accuracy is enough; we don\'t determine your exact address and don\'t send it anywhere.</string>
+    <string name="poloha_pokracovat">Continue</string>
+    <string name="poloha_ted_ne">Not now</string>
+    <string name="poloha_zamitnuto">Without location we can\'t show weather for your place. You can try again.</string>
+    <string name="poloha_trvale_zamitnuto">Location access is turned off. Everything else in the app keeps working. If you want weather for your place, allow location in Settings.</string>
+    <string name="poloha_otevrit_nastaveni">Open Settings</string>
+    <string name="poloha_souradnice">Latitude: %1$.4f, longitude: %2$.4f</string>
+    <string name="poloha_neznama">Location is allowed but not available yet. Try again in a moment.</string>
+    <string name="poloha_obnovit">Refresh location</string>
 </resources>
