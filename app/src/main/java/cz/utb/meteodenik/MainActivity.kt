@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -23,6 +24,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -94,8 +96,23 @@ fun MeteoObrazovka(
 ) {
     var zapsano by remember { mutableStateOf(false) }
     val context = LocalContext.current
+    val pocet = UKAZKOVA_MESTA.size
 
     Column(modifier = modifier.padding(16.dp)) {
+
+        // ① titulek s plurálem
+        Text(
+            text = pluralStringResource(R.plurals.pocet_zaznamu, pocet, pocet),
+            style = MaterialTheme.typography.headlineMedium,
+            modifier = Modifier.padding(bottom = 16.dp)
+        )
+
+        // ② tlačítko polohy
+        Button(onClick = { /* poloha přijde v další lekci */ }) {
+            Text(stringResource(R.string.seznam_tlacitko_poloha))
+        }
+
+        // ③ seznam měst
         UKAZKOVA_MESTA.forEach { mesto ->
             Column(
                 modifier = Modifier
@@ -106,23 +123,27 @@ fun MeteoObrazovka(
                             .putExtra(DetailMestaActivity.EXTRA_TEPLOTA, mesto.teplota)
                         context.startActivity(intent)
                     }
-                    .padding(16.dp)
+                    .padding(vertical = 16.dp)
             ) {
-                Text(mesto.nazev)
+                Text(mesto.nazev, style = MaterialTheme.typography.titleMedium)
                 Text(stringResource(R.string.teplota_format, mesto.teplota))
             }
+            HorizontalDivider()
         }
 
-        Text(
-            text = if (zapsano) stringResource(R.string.text_po_kliknuti)
-            else stringResource(R.string.uvodni_text),
-            color = MaterialTheme.colorScheme.primary
-        )
-        Button(onClick = { zapsano = true }) {
-            Text(text = stringResource(R.string.akce_zmen_text))
+        if (zapsano) {
+            Text(
+                text = stringResource(R.string.text_po_kliknuti),
+                color = MaterialTheme.colorScheme.primary
+            )
         }
-        Button(onClick = onOtevritBmi) {
-            Text(text = stringResource(R.string.akce_bmi))
+
+        // ④ tlačítko zápisu
+        Button(
+            onClick = { zapsano = true },
+            modifier = Modifier.padding(top = 16.dp)
+        ) {
+            Text(stringResource(R.string.seznam_tlacitko_zapsat))
         }
     }
 }

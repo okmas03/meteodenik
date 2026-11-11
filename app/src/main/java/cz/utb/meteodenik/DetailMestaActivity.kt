@@ -58,6 +58,6 @@ class DetailMestaActivity : ComponentActivity() {
 fun DetailObrazovka(mesto: String, teplota: Double, modifier: Modifier = Modifier) {
     Column(modifier = modifier.padding(16.dp)) {
         Text(mesto, style = MaterialTheme.typography.headlineMedium)
-        Text(stringResource(R.string.teplota_format, teplota))
+        Text(stringResource(R.string.detail_souhrn, mesto, teplota))
     }
 }

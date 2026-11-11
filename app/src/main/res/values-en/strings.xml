@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Weather Diary</string>
+    <string name="uvodni_text">Zlín</string>
+    <string name="text_po_kliknuti">Today it was 21 °C and clear.</string>
+    <string name="akce_zmen_text">Record today\'s weather</string>
+
+    <string name="bmi_hmotnost">Weight (kg)</string>
+    <string name="bmi_vyska">Height (cm)</string>
+    <string name="bmi_vysledek">BMI: %1$.1f</string>
+    <string name="bmi_zadejte">Enter weight and height</string>
+    <string name="akce_bmi">BMI Calculator</string>
+
+    <string name="teplota_format">%1$.1f °C</string>
+    <string name="mesto_nezname">Unknown city</string>
+
+    <string name="seznam_tlacitko_poloha">Find my location</string>
+    <string name="seznam_tlacitko_zapsat">Add record</string>
+    <plurals name="pocet_zaznamu">
+        <item quantity="one">My cities — %d record</item>
+        <item quantity="other">My cities — %d records</item>
+    </plurals>
+
+    <string name="detail_souhrn">%1$s currently has %2$.1f °C</string>
+</resources>

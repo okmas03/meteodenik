@@ -13,6 +13,17 @@
     <string name="teplota_format">%1$.1f °C</string>
     <string name="mesto_nezname">Neznámé město</string>
 
+    <string name="seznam_tlacitko_poloha">Zjistit moji polohu</string>
+    <string name="seznam_tlacitko_zapsat">Zapsat záznam</string>
+    <plurals name="pocet_zaznamu">
+        <item quantity="one">Moje města — %d záznam</item>
+        <item quantity="few">Moje města — %d záznamy</item>
+        <item quantity="many">Moje města — %d záznamu</item>
+        <item quantity="other">Moje města — %d záznamů</item>
+    </plurals>
+
+    <string name="detail_souhrn">%1$s má právě %2$.1f °C</string>
+
 
 
 
