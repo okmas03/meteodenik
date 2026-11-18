@@ -32,4 +32,12 @@
     <string name="poloha_souradnice">Latitude: %1$.4f, longitude: %2$.4f</string>
     <string name="poloha_neznama">Location is allowed but not available yet. Try again in a moment.</string>
     <string name="poloha_obnovit">Refresh location</string>
+
+    <string name="mesta_titulek">My cities</string>
+    <string name="mesta_prazdno">No cities yet. Add the first one.</string>
+    <string name="mesto_pole_label">City name</string>
+    <string name="mesto_pridat">Add</string>
+    <string name="mesto_teplota">%1$.1f °C</string>
+    <string name="mesto_teplota_neznama">Temperature not known yet</string>
+    <string name="mesto_avatar_popis">City badge</string>
 </resources>
