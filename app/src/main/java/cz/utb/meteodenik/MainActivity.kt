@@ -25,12 +25,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MeteoDenikTheme {
-                VizitkaKarta(
-                    jmeno = "Jana Nováková",
-                    obor = "Softwarové inženýrství, 2. ročník",
-                    email = "j_novakova@utb.cz",
-                    modifier = Modifier.padding(16.dp)
-                )
+                MestaObrazovka()
             }
         }
     }
